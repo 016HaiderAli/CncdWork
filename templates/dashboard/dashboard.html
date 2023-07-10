@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Racks Entry</title>
+</head>
+<style>
+    form{
+        color: white;
+        align-content: center;
+        padding: 1%;
+    }
+    form label{
+        font-weight: bold;
+    }
+    button{
+        transition: all 1s ease-in-out .3s;
+        font-weight: bold;
+        border: 2px solid white;
+        border-style: offset;
+    }
+    .div_c{
+            overflow:scroll;
+            color: white;
+            border: solid;
+            position: absolute;
+            margin-left: 2%;
+            margin-top: 8%;
+            height: 80%;
+            font-size: 100%;
+            width: 94%;;
+    }
+   
+
+</style>
+<body style="background-color: #003300; color: white">
+    <center><h1 style="margin-top: -.5%;">Racks Entry</h1></center>
+
+    <form style="border: none; margin-left: 90%; margin-top: -5.5%;" method="POST" id="formlogout">
+        {% csrf_token %}
+        <button style="color: red; font-weight: bold; background-color: black;" name="logout" type="submit"> Log out</button> 
+    </form>  
+    
+    <form method="POST" id="formIMSGet" style="margin-top: -1%; width: 45%; float: left;">
+        
+        <label for="sid">Sample ID:</label>
+
+        <label for="edtas" style="margin-left: 7.7%;">EDTAS:</label>
+        <label for="rackno" style="margin-left: 12%;">RACK NO:</label>
+        
+        <label for="issue" style="margin-left: 5.5%;">Issue:</label>
+        <br>
+        <input type="text" id="sid" name="sid" style="width: 18%; margin-top: 1%;">
+
+        <input type="number" id="edtas" name="edtas" style="width: 18%; margin-left: 5.5%;">
+
+        <input type="text" id="rackno" name="rackno" style="width: 18%; margin-left:5%;">
+
+        <input type="text" id="issue" name="issue" style="width: 18%; margin-left: 3.5%;">
+        {% csrf_token %}
+        <button type="submit" style="margin-top: -1%; margin-left: 5%; position: absolute; width: 15%; height: 50px; padding: 1% 0% 1% 0%; color: gold; background-color: black;">Insert</button>
+    </form>
+
+    <form method="POST"  style="float: right; margin-right: 1%; width: 38%; margin-top: -1%; padding: 1% 0% 1% 0%;">    
+        {% csrf_token %}
+        <button style="background-color: #87a4eb; margin-left: 25.5%; margin-top: 2.5%; padding: 2%;" name="showInventory">Show Inventory</button>
+        <a href="{% url 'download' %}" style="background-color: #2e8b86; margin-left: 9%; margin-top: 2.5%; padding: 2%;">Download</a>
+    </form>
+        
+    <center>
+        <div class="div_c">
+        {{data | safe}}
+        </div>
+    </center>        
+</body>
+</html>

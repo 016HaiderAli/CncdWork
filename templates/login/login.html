@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    
+    {% load static %}
+
+    <style>
+        .main{
+            height: 99%;
+            width: 99%;
+            background-image: url("{% static 'bg_standing.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        form{
+            width: 30%;
+            align-content: center;
+            padding: 1%;
+            margin-left: 35%;
+            margin-top: 10%;
+            opacity: 1;
+            position: absolute;
+        }
+
+        input{
+            width: 80%;
+        }
+
+    </style>
+
+    <body>
+        <div class="main"></div>
+        <center>
+            <form action="" method="POST" id="formLI">
+                {% csrf_token %}
+                <center>
+                    <h1>Sign In</h1>
+                    <label for="user">User Name:</label>
+                    <br>
+                    <input type="text" name="user" id="user" required>
+                    <br>
+                    <br>
+                    <label for="password">Password:</label>
+                    <br>
+                    <input type="password" name="password" id="password" required>
+                    <br>
+                    <br>
+                    <button type="submit">Log In</button>
+                    <br>
+                    <p style="color:maroon">
+                        {{ note }}
+                    </p>
+                </form>
+                <a href="{% url 'signup' %}">sign up here</a>
+            </center>
+        </center>
+    </body>
+
+</html>

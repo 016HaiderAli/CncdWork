@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+    </head>
+    {% load static %}
+    <style>
+        form{
+            width: 30%;
+            align-content: center;
+            padding: 1%;
+            margin-left: 35%;
+            margin-top: 10%;
+            opacity: 1;
+            position: absolute;
+        }
+
+        input{
+            width: 80%;
+        }
+
+        .main{
+            height: 99%;
+            width: 99%;
+            background-image: url("{% static 'bg_standing.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            position: absolute;
+        }
+    </style>
+    <body>
+        <div class="main"></div>
+        <form method="POST" id="formSU">
+            {% csrf_token %}
+            <center>
+                <h1>Sign Up</h1>
+                <label for="username_su">Username:</label>
+                <input type="text" id="username_su" name="username_su" pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_]+$" required>
+                <br>
+                <br>
+                <label for="password_su" required>Password:</label>
+                <input type="password" id="password_su" name="password_su">
+                <br>
+                <br>
+                <button type="submit">Sign Up</button>
+            </center>
+        </form>   
+    </body>
+</html>
